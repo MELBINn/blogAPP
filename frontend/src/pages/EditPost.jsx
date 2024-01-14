@@ -3,7 +3,7 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import {ImCross} from 'react-icons/im'
 import axios from "axios"
-import { URL } from "../url"
+import { URL } from "../url" 
 import { useNavigate, useParams } from "react-router-dom"
 import { UserContext } from "../context/UserContext"
 
@@ -19,6 +19,7 @@ const EditPost = () => {
     const [cat,setCat]=useState("")
     const [cats,setCats]=useState([])
 
+   //function that makes a GET request to retrieve post data based on the postId 
     const fetchPost=async()=>{
       try{
         const res=await axios.get(URL+"/api/posts/"+postId)
@@ -32,7 +33,8 @@ const EditPost = () => {
         console.log(err)
       }
     }
-
+//handles the update of the post. It constructs a post object with the 
+//updated data, including the user's information
     const handleUpdate=async (e)=>{
       e.preventDefault()
       const post={
@@ -42,7 +44,7 @@ const EditPost = () => {
         userId:user._id,
         categories:cats
       }
-
+    //handles file upload using the axios.post method to an upload endpoint.
       if(file){
         const data=new FormData()
         const filename=Date.now()+file.name
@@ -76,7 +78,8 @@ const EditPost = () => {
 
     useEffect(()=>{
       fetchPost()
-    },[postId])
+    },[postId])// fetch data based on some prop changes or when the component initially mounts if
+    //dependancies changes component rerender
 
     const deleteCategory=(i)=>{
        let updatedCats=[...cats]
