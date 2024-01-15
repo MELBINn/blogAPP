@@ -7,6 +7,7 @@ import { UserContext } from '../context/UserContext'
 import { URL } from '../url'
 import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
+//function to create post
 
 const CreatePost = () => {
    
