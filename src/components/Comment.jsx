@@ -5,6 +5,7 @@ import { URL } from "../url"
 import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 
+//comment
 const Comment = ({c,post}) => {
 
   const {user}=useContext(UserContext)
