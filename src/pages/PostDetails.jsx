@@ -10,7 +10,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserContext"
 import Loader from "../components/Loader"
 
-
+//code for pagedetails
 const PostDetails = () => {
 
   const postId=useParams().id
